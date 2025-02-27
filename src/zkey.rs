@@ -53,6 +53,7 @@ struct Section {
 pub fn read_zkey<R: Read + Seek>(
     reader: &mut R,
 ) -> IoResult<(ProvingKey<Bn254>, ConstraintMatrices<Fr>)> {
+    println!("Reading zkey");
     let mut binfile = BinFile::new(reader)?;
     let proving_key = binfile.proving_key()?;
     let matrices = binfile.matrices()?;
